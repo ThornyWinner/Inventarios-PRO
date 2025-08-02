@@ -1,5 +1,5 @@
 export const Light ={
-     rgbafondoanimado:"rgba(102, 102, 102, 0.2)",
+    rgbafondoanimado:"rgba(102, 102, 102, 0.2)",
     body: "#fff",  
     text: "#202020",
     bodyRgba: "255, 255, 255",

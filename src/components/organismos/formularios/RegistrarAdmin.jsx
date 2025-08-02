@@ -1,16 +1,19 @@
 
 import styled from "styled-components";
 import { v } from "../../../styles/variables";
-import { InputText, Btnsave, useUsuariosStore } from "../../../index";
+import {
+  InputText,
+  Btnsave,
+  useUsuariosStore
+} from "../../../index";
 import { useForm } from "react-hook-form";
 import { MdAlternateEmail } from "react-icons/md";
 import { RiLockPasswordLine } from "react-icons/ri";
 import { useMutation } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
-
 export function RegistrarAdmin({ setState }) {
   const { insertarUsuarioAdmin } = useUsuariosStore();
-  const { signInWithEmail } = useUsuariosStore();
+ 
   const navigate = useNavigate();
   const {
     register,
@@ -26,12 +29,7 @@ export function RegistrarAdmin({ setState }) {
       }; 
       const dt =   await insertarUsuarioAdmin(p);
       if (dt) {
-        const response =await signInWithEmail(p);
-        if (response) {
-          navigate("/");
-        } else{
-          alert("Cuenta creada, pero error al iniciar sesion");
-        }
+        navigate("/");
       } else {
         setState(false);
       }
